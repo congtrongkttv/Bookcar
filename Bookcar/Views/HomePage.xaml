@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bookcar.Views.HomePage"
+             xmlns:vm="clr-namespace:Bookcar.ViewModels"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel></vm:HomeViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <gmaps:Map x:Name="map" VerticalOptions="FillAndExpand"></gmaps:Map>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
