@@ -4,8 +4,11 @@
              x:Class="Bookcar.Views.HomePage"
              xmlns:vm="clr-namespace:Bookcar.ViewModels"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             Title="{Binding Title}">
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem >
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:HomeViewModel></vm:HomeViewModel>
     </ContentPage.BindingContext>
@@ -14,7 +17,22 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <gmaps:Map x:Name="map" VerticalOptions="FillAndExpand"></gmaps:Map>
+            <StackLayout Grid.Column="0" Grid.Row="0">
+                <maps:Map MapType="Street">
+                    <x:Arguments>
+                        <maps:MapSpan>
+                            <x:Arguments>
+                                <maps:Position>
+                                    <x:Arguments>
+                                        <x:Double>16.0092384123</x:Double>
+                                        <x:Double>108.09482094</x:Double>
+                                    </x:Arguments>
+                                </maps:Position>
+                            </x:Arguments>
+                        </maps:MapSpan>
+                    </x:Arguments>
+                </maps:Map>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
