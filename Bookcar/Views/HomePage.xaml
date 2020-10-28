@@ -1,36 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Bookcar.Views.HomePage"
-             xmlns:vm="clr-namespace:Bookcar.ViewModels"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             >
+<ContentPage
+    x:Class="Bookcar.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    xmlns:vm="clr-namespace:Bookcar.ViewModels">
     <ContentPage.ToolbarItems>
-        <ToolbarItem >
-        </ToolbarItem>
+        <ToolbarItem />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <vm:HomeViewModel></vm:HomeViewModel>
+        <vm:HomeViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Column="0" Grid.Row="0">
-                <maps:Map MapType="Street">
-                    <x:Arguments>
-                        <maps:MapSpan>
-                            <x:Arguments>
-                                <maps:Position>
-                                    <x:Arguments>
-                                        <x:Double>16.0092384123</x:Double>
-                                        <x:Double>108.09482094</x:Double>
-                                    </x:Arguments>
-                                </maps:Position>
-                            </x:Arguments>
-                        </maps:MapSpan>
-                    </x:Arguments>
+            <StackLayout Grid.Row="0" Grid.Column="0">
+                <maps:Map
+                    x:Name="map"
+                    ItemsSource="{Binding LstVehicle}"
+                    MapType="Street">
+                    <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <maps:Pin Label="{Binding VehiclePlate}" Position="{Binding Position}" />
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
                 </maps:Map>
             </StackLayout>
         </Grid>

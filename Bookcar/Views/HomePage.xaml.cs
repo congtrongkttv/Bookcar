@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
 
 namespace Bookcar.Views
@@ -11,7 +10,6 @@ namespace Bookcar.Views
         public HomePage()
         {
             InitializeComponent();
-            
         }
     }
 }
