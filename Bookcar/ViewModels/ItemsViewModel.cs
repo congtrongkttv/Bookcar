@@ -10,7 +10,7 @@ using Bookcar.Views;
 
 namespace Bookcar.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : BaseViewModel<Item>
     {
         private Item _selectedItem;
 

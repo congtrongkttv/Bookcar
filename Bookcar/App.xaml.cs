@@ -14,6 +14,7 @@ namespace Bookcar
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<MockDataStoreVehicles>();
             MainPage = new AppShell();
         }
 

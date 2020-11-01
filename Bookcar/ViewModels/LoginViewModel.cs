@@ -1,4 +1,5 @@
-﻿using Bookcar.Views;
+﻿using Bookcar.Models;
+using Bookcar.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Bookcar.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel<Vehicles>
     {
         public Command LoginCommand { get; }
 

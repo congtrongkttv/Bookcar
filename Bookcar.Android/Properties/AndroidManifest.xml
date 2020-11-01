@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.bookcar">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
     <application android:label="Bookcar.Android" android:theme="@style/MainTheme">
-		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAKHqE30Yc8M1Zm0Gv47WG_beNQchi1uW0" />
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCdvNxkb5jbbggs7pvDs7nrSfak1lcsZ1E" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

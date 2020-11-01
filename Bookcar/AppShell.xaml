@@ -28,8 +28,8 @@
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-
     <TabBar>
+        <!--<ShellContent Title="Default" Icon="tab_about.png" Route="DefaultPage" ContentTemplate="{DataTemplate local:DefaultPage}" />-->
         <ShellContent Title="Home" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:HomePage}" />
         <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </TabBar>

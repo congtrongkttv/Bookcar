@@ -1,33 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<ContentPage NavigationPage.HasNavigationBar="false"
     x:Class="Bookcar.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-    xmlns:vm="clr-namespace:Bookcar.ViewModels">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem />
-    </ContentPage.ToolbarItems>
-    <ContentPage.BindingContext>
-        <vm:HomeViewModel />
-    </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0" Grid.Column="0">
-                <maps:Map
-                    x:Name="map"
-                    ItemsSource="{Binding LstVehicle}"
-                    MapType="Street">
-                    <maps:Map.ItemTemplate>
-                        <DataTemplate>
-                            <maps:Pin Label="{Binding VehiclePlate}" Position="{Binding Position}" />
-                        </DataTemplate>
-                    </maps:Map.ItemTemplate>
-                </maps:Map>
-            </StackLayout>
-        </Grid>
-    </ContentPage.Content>
+    xmlns:custom="clr-namespace:DurianCode.PlacesSearchBar;assembly=PlacesSearchBar"
+    xmlns:vm="clr-namespace:Bookcar.ViewModels" 
+    xmlns:cus="clr-namespace:Bookcar.CustomControl" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:model="clr-namespace:Bookcar.Models" 
+    >
+    
+    <RefreshView Command="{Binding LoadVehicleCommand}" x:DataType="vm:HomeViewModel" >
+        <StackLayout>
+            <custom:PlacesBar x:Name="search_bar" />
+            <ListView x:Name="results_list" IsVisible="false"
+				AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="SizeProportional" >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="custom:AutoCompletePrediction">
+                        <TextCell Text="{Binding MainText}" Detail="{Binding SecondaryText}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <cus:CustomMap MapType="Street" x:Name="map" >
+            </cus:CustomMap>
+        </StackLayout>
+    </RefreshView>
 </ContentPage>
